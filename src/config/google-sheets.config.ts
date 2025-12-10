@@ -1,5 +1,25 @@
-// Google Sheets Configuration - Hardcoded credentials
+/**
+ * Google Sheets Configuration
+ * 
+ * This file contains hardcoded credentials and configuration for Google Sheets API integration.
+ * The configuration includes:
+ * - Service account credentials for authentication
+ * - Target spreadsheet ID
+ * - Sheet name and column range
+ * 
+ * Security Note: In production, consider using environment variables or a secure vault
+ * instead of hardcoding credentials.
+ */
+
+/**
+ * Google Sheets Configuration Object
+ * Contains all necessary credentials and settings for the Google Sheets integration
+ */
 export const GOOGLE_SHEETS_CONFIG = {
+  /**
+   * Service account credentials for Google Sheets API authentication
+   * These credentials provide the necessary permissions to read and write to the spreadsheet
+   */
   credentials: {
     type: 'service_account',
     project_id: 'symmetric-core-461109-t5',
@@ -13,6 +33,19 @@ export const GOOGLE_SHEETS_CONFIG = {
     client_x509_cert_url: 'https://www.googleapis.com/robot/v1/metadata/x509/spreadsheet%40symmetric-core-461109-t5.iam.gserviceaccount.com',
     universe_domain: 'googleapis.com',
   },
+  
+  /**
+   * Google Sheets Spreadsheet ID
+   * This is the unique identifier for the target spreadsheet
+   * Found in the spreadsheet URL: https://docs.google.com/spreadsheets/d/{SPREADSHEET_ID}/edit
+   */
   spreadsheetId: '1NHehLN8Xbn07xOFE8O0iyuxonARpKX1HzWM6SlkDfVY',
+  
+  /**
+   * Sheet range specification
+   * Format: {SheetName}!{ColumnRange}
+   * - LiveDB: The name of the sheet tab
+   * - A:F: Columns A through F (Serial, Name, Email, Phone, Company, Message)
+   */
   range: 'LiveDB!A:F',
 };
